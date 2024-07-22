@@ -1,4 +1,4 @@
-import type { ChangePasswordSchema, DeleteUserSchema, LoginSchema, SignupSchema } from '@db'
+import type { DeleteUserSchema, LoginSchema, SignupSchema } from '@db'
 import { consola } from 'consola'
 
 export function useAuth() {
@@ -32,17 +32,6 @@ export function useAuth() {
     await navigateTo('/auth/login')
   }
 
-  async function changePassword(body: ChangePasswordSchema) {
-    try {
-      await trpc.user.changePassword.mutate(body)
-      await navigateTo('/auth/login')
-    }
-    catch (err: any) {
-      error.value = err
-      consola.error(err)
-    }
-  }
-
   async function deleteUser(body: DeleteUserSchema) {
     try {
       await trpc.user.delete.mutate(body)
@@ -59,7 +48,6 @@ export function useAuth() {
     deleteUser,
     signup,
     logout,
-    changePassword,
     error,
   }
 }

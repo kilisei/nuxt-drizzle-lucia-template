@@ -12,27 +12,27 @@ services:
     networks:
       - network
 
-  mailpit:
-    image: axllent/mailpit
-    volumes:
-      - ./data:/data
-    ports:
-      - 8025:8025
-      - 1025:1025
-
-  # app:
-  #   build:
-  #     context: .
-  #   environment:
-  #     DB_USER: db-user
-  #     DB_PASSWORD: db-pw
-  #     DB_DB: db
-  #     DB_PORT: 5432
-  #     DB_HOST: db
+  # mailpit:
+  #   image: axllent/mailpit
+  #   volumes:
+  #     - ./data:/data
   #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - network
+  #     - 8025:8025
+  #     - 1025:1025
+
+  app:
+    build:
+      context: .
+    environment:
+      DB_USER: db-user
+      DB_PASSWORD: db-pw
+      DB_DB: db
+      DB_PORT: 5432
+      DB_HOST: db
+    ports:
+      - '3000:3000'
+    networks:
+      - network
 
 volumes:
   db_data:

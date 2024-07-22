@@ -18,21 +18,15 @@ export const userRouter = router({
         parallelism: 1,
       })
 
-      const id = generateIdFromEntropySize(16)
-      
-      console.log(input)
-
       const [newUser] = await db
         .insert(user)
         .values({
-          id,
+          id: generateIdFromEntropySize(16),
           username,
           email,
           passwordHash,
         })
         .returning()
-
-      console.log(newUser)
 
       if (!newUser) {
         throw createError({

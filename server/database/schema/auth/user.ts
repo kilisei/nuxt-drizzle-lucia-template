@@ -11,7 +11,6 @@ export const user = pgTable('user', {
 })
 
 export const selectUserSchema = createSelectSchema(user)
-
 export type User = z.infer<typeof selectUserSchema>
 
 export const signupSchema = z.object({
@@ -27,12 +26,6 @@ export const loginSchema = z.object({
   password: z.string().min(1, 'Password cannot be empty').max(128, 'Password cannot be longer than 128 characters'),
 })
 export type LoginSchema = z.infer<typeof loginSchema>
-
-export const changePasswordSchema = z.object({
-  password: z.string().min(1, 'Password cannot be empty').max(128, 'Password cannot be longer than 128 characters'),
-  newPassword: z.string().min(1, 'New password cannot be empty').max(128, 'New password cannot be longer than 128 characters'),
-})
-export type ChangePasswordSchema = z.infer<typeof changePasswordSchema>
 
 export const deleteUserSchema = z.object({
   password: z.string().min(1, 'Password cannot be empty').max(128, 'Password cannot be longer than 128 characters'),
