@@ -1,7 +1,9 @@
 import { user } from '@db'
 import { eq } from 'drizzle-orm'
-import { verify } from '@node-rs/argon2'
+import { Argon2id } from 'oslo/password'
 import type { User } from 'lucia'
+
+const argon2id = new Argon2id()
 
 export async function getAuthedUser(db: any, username: string, password: string): Promise<User> {
   const existingUser = await db.query.user.findFirst({
@@ -15,12 +17,7 @@ export async function getAuthedUser(db: any, username: string, password: string)
     })
   }
 
-  const validPassword = await verify(existingUser.passwordHash, password, {
-    memoryCost: 19456,
-    timeCost: 2,
-    outputLen: 32,
-    parallelism: 1,
-  })
+  const validPassword = await argon2id.verify(existingUser.passwordHash, password)
 
   if (!validPassword) {
     throw createError({

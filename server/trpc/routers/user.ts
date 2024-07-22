@@ -1,8 +1,10 @@
 import { deleteUserSchema, loginSchema, signupSchema, user } from '@db'
 import { eq } from 'drizzle-orm'
-import { hash } from '@node-rs/argon2'
+import { Argon2id } from 'oslo/password'
 import { generateIdFromEntropySize } from 'lucia'
 import { protectedProcedure, publicProcedure, router } from '../trpc'
+
+const argon2id = new Argon2id()
 
 export const userRouter = router({
   signUp: publicProcedure
@@ -11,12 +13,7 @@ export const userRouter = router({
       const { db, setCookie } = ctx
       const { username, password, email } = input
 
-      const passwordHash = await hash(password, {
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      })
+      const passwordHash = await argon2id.hash(password)
 
       const [newUser] = await db
         .insert(user)
