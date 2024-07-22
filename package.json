@@ -37,7 +37,6 @@
     "@nuxt/fonts": "^0.7.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/node": "latest",
-    "@types/nodemailer": "^6.4.15",
     "@unocss/nuxt": "^0.61.3",
     "@vee-validate/nuxt": "^4.13.2",
     "@vue/devtools-api": "^6.6.3",
