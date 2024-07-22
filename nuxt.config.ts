@@ -1,0 +1,38 @@
+import { fileURLToPath } from 'node:url'
+
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+
+  compatibilityDate: '2024-07-02',
+
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  alias: {
+    '@db': fileURLToPath(new URL('./server/database/schema', import.meta.url)),
+  },
+
+  imports: {
+    dirs: ['server/database/schema'],
+  },
+
+  modules: [
+    '@nuxt/fonts',
+    'radix-vue/nuxt',
+    '@vueuse/nuxt',
+    '@vee-validate/nuxt',
+    '@nuxtjs/tailwindcss',
+  ],
+
+  build: {
+    transpile: ['trpc-nuxt'],
+  },
+
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      tailwindcss: {},
+    },
+  },
+})
