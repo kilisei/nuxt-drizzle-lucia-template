@@ -4,12 +4,11 @@
 - run dev
 - yeah thats it
 
-
 ## Needed .env
-```
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=db-user
-DB_PASSWORD=db-pw
-DB_DB=db
+```env
+POSTGRES_USER=db-user
+POSTGRES_PASSWORD=db-pw
+POSTGRES_DB=db
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
 ```
