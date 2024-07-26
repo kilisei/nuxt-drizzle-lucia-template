@@ -22,7 +22,7 @@
     "drizzle-orm": "^0.31.4",
     "drizzle-zod": "^0.5.1",
     "lucia": "^3.2.0",
-    "nuxt": "^3.12.3",
+    "nuxt": "^3.12.4",
     "oslo": "^1.2.1",
     "postgres": "^3.4.4",
     "trpc-nuxt": "^0.10.22",
@@ -32,20 +32,20 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.22.0",
+    "@antfu/eslint-config": "^2.23.2",
     "@nuxt/fonts": "^0.7.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@unocss/nuxt": "^0.61.3",
+    "@unocss/nuxt": "^0.61.5",
     "@vee-validate/nuxt": "^4.13.2",
     "@vue/devtools-api": "^6.6.3",
-    "@vue/language-server": "^2.0.26",
+    "@vue/language-server": "^2.0.29",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
     "drizzle-kit": "^0.22.8",
-    "eslint": "^9.6.0",
+    "eslint": "^9.7.0",
     "eslint-plugin-format": "^0.1.2",
-    "postcss": "^8.4.39",
-    "radix-vue": "^1.9.1",
-    "typescript": "^5.5.3"
+    "postcss": "^8.4.40",
+    "radix-vue": "^1.9.2",
+    "typescript": "^5.5.4"
   }
 }
