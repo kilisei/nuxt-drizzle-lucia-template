@@ -38,6 +38,8 @@
     "@vee-validate/nuxt": "^4.13.2",
     "@vue/devtools-api": "^6.6.3",
     "@vue/language-server": "^2.0.29",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
     "drizzle-kit": "^0.22.8",
     "eslint": "^9.8.0",
     "eslint-plugin-format": "^0.1.2",

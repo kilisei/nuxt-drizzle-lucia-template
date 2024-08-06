@@ -19,6 +19,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@vee-validate/nuxt',
+    '@vueuse/nuxt',
   ],
 
   build: {
