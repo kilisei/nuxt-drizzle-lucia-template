@@ -3,6 +3,5 @@ import Database from 'better-sqlite3'
 import * as schema from '~~/server/database/schema'
 
 export function useDB() {
-  const db = new Database('sqlite.db')
-  return drizzle(db, { schema })
+  return drizzle(new Database('sqlite.db'), { schema })
 }

@@ -25,11 +25,4 @@ export default defineNuxtConfig({
   build: {
     transpile: ['trpc-nuxt'],
   },
-
-  postcss: {
-    plugins: {
-      autoprefixer: {},
-      tailwindcss: {},
-    },
-  },
 })

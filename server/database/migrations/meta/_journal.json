@@ -1,12 +1,12 @@
 {
   "version": "7",
-  "dialect": "postgresql",
+  "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1721669485291,
-      "tag": "0000_redundant_beyonder",
+      "version": "6",
+      "when": 1722973595927,
+      "tag": "0000_new_manta",
       "breakpoints": true
     }
   ]

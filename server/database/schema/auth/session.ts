@@ -1,11 +1,11 @@
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 import type { z } from 'zod'
-import { user } from './user'
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { user } from './index'
 
-export const session = pgTable('session', {
+export const session = sqliteTable('session', {
   id: text('id').notNull().primaryKey(),
-  expiresAt: timestamp('expiresAt', { withTimezone: true, mode: 'date' }).notNull(),
+  expiresAt: integer('expiresAt').notNull(),
   userId: text('userId').notNull().references(() => user.id),
 })
 

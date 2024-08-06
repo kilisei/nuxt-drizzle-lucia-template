@@ -1,8 +1,8 @@
-import { pgTable, text } from 'drizzle-orm/pg-core'
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { createSelectSchema } from 'drizzle-zod'
 import { z } from 'zod'
 
-export const user = pgTable('user', {
+export const user = sqliteTable('user', {
   id: text('id').notNull().primaryKey(),
   username: text('username').notNull().unique(),
   role: text('role', { enum: ['admin', 'user'] }).notNull().default('user'),

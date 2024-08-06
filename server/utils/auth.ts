@@ -1,11 +1,12 @@
 import { Lucia, TimeSpan } from 'lucia'
-import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle'
+import { DrizzleSQLiteAdapter } from '@lucia-auth/adapter-drizzle'
 import { type User, session, user } from '@db'
 
-const adapter = new DrizzlePostgreSQLAdapter(useDB(), session, user)
+// @ts-expect-error idk why its drunk
+const adapter = new DrizzleSQLiteAdapter(useDB(), session, user)
 
 export const lucia = new Lucia(adapter, {
-  sessionExpiresIn: new TimeSpan(1, 'm'),
+  sessionExpiresIn: new TimeSpan(4, 'w'),
   sessionCookie: {
     attributes: {
       secure: !import.meta.dev,
