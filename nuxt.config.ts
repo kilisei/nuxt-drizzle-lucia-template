@@ -18,11 +18,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/fonts',
-    'radix-vue/nuxt',
-    '@vueuse/nuxt',
     '@vee-validate/nuxt',
-    '@nuxtjs/tailwindcss',
   ],
 
   build: {

@@ -16,7 +16,7 @@ const { value, errorMessage } = useField(() => props.name)
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div>
     <label :for="label">{{ label }}</label>
     <input
       v-bind="attrs"
@@ -25,7 +25,7 @@ const { value, errorMessage } = useField(() => props.name)
       v-model="value"
       :name
     >
-    <span class="text-red-500">
+    <span>
       {{ errorMessage }}
     </span>
   </div>

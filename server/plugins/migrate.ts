@@ -1,15 +1,8 @@
-import { consola } from 'consola'
-import { migrate } from 'drizzle-orm/postgres-js/migrator'
+import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
 
-export default defineNitroPlugin(async () => {
+export default defineNitroPlugin(() => {
   if (import.meta.dev)
     return
 
-  await migrate(useDB(), { migrationsFolder: 'server/database/migrations' })
-    .then(() => {
-      consola.success('Database migrations done')
-    })
-    .catch((err) => {
-      consola.error('Database migrations failed', err)
-    })
+  migrate(useDB(), { migrationsFolder: 'migrations' })
 })

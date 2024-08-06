@@ -1,17 +1,8 @@
-import { env } from 'node:process'
-import { drizzle } from 'drizzle-orm/postgres-js'
-import postgres from 'postgres'
-import * as schema from '../database/schema'
-
-// @ts-expect-error yeah it can be but we will see
-const client = postgres({
-  host: env.POSTGRES_HOST,
-  port: env.POSTGRES_PORT,
-  user: env.POSTGRES_USER,
-  password: env.POSTGRES_PASSWORD,
-  database: env.POSTGRES_DB,
-})
+import { drizzle } from 'drizzle-orm/better-sqlite3'
+import Database from 'better-sqlite3'
+import * as schema from '~~/server/database/schema'
 
 export function useDB() {
-  return drizzle(client, { schema })
+  const db = new Database('sqlite.db')
+  return drizzle(db, { schema })
 }

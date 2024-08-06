@@ -13,7 +13,7 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <form class="flex gap-2 flex-col w-fit" @submit.prevent="onSubmit()">
+  <form @submit.prevent="onSubmit()">
     <UiInput label="Username" name="username" placeholder="Username" />
     <UiInput label="Password" type="password" name="password" placeholder="Password" />
 
